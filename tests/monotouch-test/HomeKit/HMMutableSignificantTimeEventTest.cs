@@ -37,6 +37,18 @@ namespace MonoTouchFixtures.HomeKit
 				Assert.AreEqual (HMSignificantEvent.Sunset, obj.SignificantEvent, "2 PresenceType Setter");
 			}
 		}
+
+		[Test] // https://bugzilla.xamarin.com/show_bug.cgi?id=60303
+		public void Bug60303 ()
+		{
+			var unknownEnum = (HMSignificantEvent)12345;
+			using (var obj = new HMMutableSignificantTimeEvent (HMSignificantEvent.Sunrise, null)) {
+				Assert.Throws<NotSupportedException> (() => {
+					obj.SignificantEvent = unknownEnum;
+					var e = obj.SignificantEvent;
+				}, "SignificantEvent should throw NotSupportedException until bug 60303 is fixed");
+			}
+		}
 	}
 }
 
