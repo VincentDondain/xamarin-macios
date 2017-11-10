@@ -871,11 +871,10 @@ namespace XamCore.HomeKit {
 		[Export ("accessory", ArgumentSemantic.Weak)]
 		HMAccessory Accessory { get; }
 
-		[Internal]
 		[Export ("serviceType", ArgumentSemantic.Copy)]
-		NSString _ServiceType { get; }
+		NSString WeakServiceType { get; }
 
-		[Wrap ("HMServiceTypeExtensions.GetValue (_ServiceType)")]
+		[Wrap ("HMServiceTypeExtensions.GetValue (WeakServiceType)")]
 		HMServiceType ServiceType { get; }
 
 		[Export ("name")]

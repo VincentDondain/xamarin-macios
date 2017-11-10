@@ -829,6 +829,7 @@ HOMEKIT_SOURCES = \
 	HomeKit/HMSignificantTimeEvent.cs \
 	HomeKit/HMMutableSignificantTimeEvent.cs \
 	HomeKit/HMService.cs \
+	HomeKit/HMServiceType.cs \
 
 # iAd
 

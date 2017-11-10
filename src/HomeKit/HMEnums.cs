@@ -628,171 +628,131 @@ namespace XamCore.HomeKit {
 	[TV (10,0)]
 	[Flags]
 	public enum HMServiceType {
+		Custom = -1,
+
 		None,
 
-		[Field ("HMServiceTypeLightbulb")]
 		LightBulb,
 
-		[Field ("HMServiceTypeSwitch")]
 		Switch,
 
-		[Field ("HMServiceTypeThermostat")]
 		Thermostat,
 
-		[Field ("HMServiceTypeGarageDoorOpener")]
 		GarageDoorOpener,
 
-		[Field ("HMServiceTypeAccessoryInformation")]
 		AccessoryInformation,
 
-		[Field ("HMServiceTypeFan")]
 		Fan,
 
-		[Field ("HMServiceTypeOutlet")]
 		Outlet,
 
-		[Field ("HMServiceTypeLockMechanism")]
 		LockMechanism,
 
-		[Field ("HMServiceTypeLockManagement")]
 		LockManagement,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeAirQualitySensor")]
 		AirQualitySensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeBattery")]
 		Battery,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeCarbonDioxideSensor")]
 		CarbonDioxideSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeCarbonMonoxideSensor")]
 		CarbonMonoxideSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeContactSensor")]
 		ContactSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeDoor")]
 		Door,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeHumiditySensor")]
 		HumiditySensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeLeakSensor")]
 		LeakSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeLightSensor")]
 		LightSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeMotionSensor")]
 		MotionSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeOccupancySensor")]
 		OccupancySensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeSecuritySystem")]
 		SecuritySystem,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeStatefulProgrammableSwitch")]
 		StatefulProgrammableSwitch,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeStatelessProgrammableSwitch")]
 		StatelessProgrammableSwitch,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeSmokeSensor")]
 		SmokeSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeTemperatureSensor")]
 		TemperatureSensor,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeWindow")]
 		Window,
 
 		[iOS (9,0)]
-		[Field ("HMServiceTypeWindowCovering")]
 		WindowCovering,
 
 		[iOS (10,0), Watch (3,0)]
-		[Field ("HMServiceTypeCameraRTPStreamManagement")]
 		CameraRtpStreamManagement,
 
 		[iOS (10,0), Watch (3,0)]
-		[Field ("HMServiceTypeCameraControl")]
 		CameraControl,
 
 		[iOS (10,0), Watch (3,0)]
-		[Field ("HMServiceTypeMicrophone")]
 		Microphone,
 
 		[iOS (10,0), Watch (3,0)]
-		[Field ("HMServiceTypeSpeaker")]
 		Speaker,
 
 		[iOS (10,0), Watch (3,0)]
-		[Field ("HMServiceTypeDoorbell")]
 		Doorbell,
 
 		[Watch (3,1,1)]
 		[iOS (10,2), TV (10,1)]
-		[Field ("HMServiceTypeAirPurifier")]
 		AirPurifier,
 
 		[Watch (3,1,1)]
 		[iOS (10,2), TV (10,1)]
-		[Field ("HMServiceTypeVentilationFan")]
 		VentilationFan,
 
 		[Watch (3,1,1)]
 		[iOS (10,2), TV (10,1)]
-		[Field ("HMServiceTypeFilterMaintenance")]
 		FilterMaintenance,
 
 		[Watch (3,1,1)]
 		[iOS (10,2), TV (10,1)]
-		[Field ("HMServiceTypeHeaterCooler")]
 		HeaterCooler,
 
 		[Watch (3,1,1)]
 		[iOS (10,2), TV (10,1)]
-		[Field ("HMServiceTypeHumidifierDehumidifier")]
 		HumidifierDehumidifier,
 
 		[Watch (3,1,1)]
 		[iOS (10,2), TV (10,1)]
-		[Field ("HMServiceTypeSlats")]
 		Slats,
 
 		[iOS (10,3), Watch (3,2), TV (10,2)]
-		[Field ("HMServiceTypeLabel")]
 		Label,
 
 		[Watch (4,2), TV (11,2), iOS (11,2)]
-		[Field ("HMServiceTypeIrrigationSystem")]
 		IrrigationSystem,
 
 		[Watch (4,2), TV (11,2), iOS (11,2)]
-		[Field ("HMServiceTypeValve")]
 		Valve,
 
 		[Watch (4,2), TV (11,2), iOS (11,2)]
-		[Field ("HMServiceTypeFaucet")]
 		Faucet,
 	}
 
