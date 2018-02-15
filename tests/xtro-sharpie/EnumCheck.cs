@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Mono.Cecil;
 
 using Clang.Ast;
+using System.Linq;
 
 namespace Extrospection {
 
@@ -138,6 +139,26 @@ namespace Extrospection {
 			}
 			if (native_size != managed_size)
 				Log.On (framework).Add ($"!wrong-enum-size! {name} managed {managed_size} vs native {native_size}");
+
+			var declValues = new List<string> ();
+			foreach (object item in decl.Values)
+				declValues.Add (item.ToString ());
+
+			foreach (var field in type.Fields) {
+				var fieldName = field.Name;
+				if (fieldName == "value__")
+					continue;
+				//var test = $"{type.Name}{fieldName}";
+				if (declValues.FirstOrDefault(s => s.Contains (fieldName)) == null)
+					Log.On (framework).Add ($"!wrong-enum-value! {fieldName} for {type.Name}");
+				//else
+					//declValues.Remove (test);
+			}
+
+			//if (declValues.Any ()) {
+			//	foreach (var value in declValues)
+			//		Log.On (framework).Add ($"!missing-enum-value! {value}");
+			//}
 		}
 
 		static bool IsNative (TypeDefinition type)
