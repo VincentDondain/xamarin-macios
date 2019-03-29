@@ -62,6 +62,10 @@ namespace Xamarin.MacDev.Tasks
 		public ITaskItem[] BundleResources { get; set; }
 
 		#endregion
+		
+		string AppBundleName {
+			get { return Path.GetFileName (AppBundleDir); }
+		}
 
 		static string ToolName {
 			get { return "copySceneKitAssets"; }

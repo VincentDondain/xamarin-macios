@@ -1273,6 +1273,13 @@ namespace Xamarin.Bundler {
 						args.Append ("-u ").Append ("_SystemNative_RealPath").Append (' '); // This keeps libmono_system_native_la-pal_io.o symbols
 					}
 
+					// libmono-system-native.a needs to be included if it exists in the mono in question
+					string libmonoNative =  Path.Combine (libdir, "libmono-system-native.a");
+					if (File.Exists (libmonoNative)) {
+						args.Append (StringUtils.Quote (libmonoNative)).Append (' ');
+						args.Append ("-u ").Append ("_SystemNative_RealPath").Append (' '); // This keeps libmono_system_native_la-pal_io.o symbols
+					}
+
 					if (profiling.HasValue && profiling.Value) {
 						args.Append (StringUtils.Quote (Path.Combine (libdir, "libmono-profiler-log.a"))).Append (' ');
 						args.Append ("-u _mono_profiler_init_log -lz ");
