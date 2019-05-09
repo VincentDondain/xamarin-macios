@@ -31,7 +31,7 @@ namespace xharness
 		public bool IncludetvOS = true;
 		public bool IncludewatchOS = true;
 		public bool IncludeMmpTest;
-		public bool IncludeiOSMSBuild = true;
+		public bool IncludeMSBuild = true;
 		public bool IncludeMtouch;
 		public bool IncludeBtouch;
 		public bool IncludeMacBindingProject;
@@ -773,7 +773,7 @@ namespace xharness
 			SetEnabled (labels, "watchos", ref IncludewatchOS);
 			SetEnabled (labels, "mac", ref IncludeMac);
 			SetEnabled (labels, "mac-classic", ref IncludeClassicMac);
-			SetEnabled (labels, "ios-msbuild", ref IncludeiOSMSBuild);
+			SetEnabled (labels, "msbuild", ref IncludeMSBuild);
 			SetEnabled (labels, "ios-simulator", ref IncludeSimulator);
 			bool inc_permission_tests = Harness.IncludeSystemPermissionTests;
 			SetEnabled (labels, "system-permission", ref inc_permission_tests);
@@ -856,7 +856,7 @@ namespace xharness
 				TestName = "MSBuild tests",
 				Mode = "iOS",
 				Timeout = TimeSpan.FromMinutes (60),
-				Ignored = !IncludeiOSMSBuild,
+				Ignored = !IncludeMSBuild,
 			};
 			Tasks.Add (nunitExecutioniOSMSBuild);
 			
