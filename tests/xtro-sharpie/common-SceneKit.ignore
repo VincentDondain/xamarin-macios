@@ -80,6 +80,11 @@
 !missing-selector! SCNNode::simdWorldRight not bound
 !missing-selector! SCNNode::simdWorldTransform not bound
 !missing-selector! SCNNode::simdWorldUp not bound
+!missing-selector! SCNHitTestResult::simdLocalCoordinates not bound
+!missing-selector! SCNHitTestResult::simdLocalNormal not bound
+!missing-selector! SCNHitTestResult::simdModelTransform not bound
+!missing-selector! SCNHitTestResult::simdWorldCoordinates not bound
+!missing-selector! SCNHitTestResult::simdWorldNormal not bound
 
 ## untyped enum (SceneKitTypes.h) but described as the value of `code` for `NSError` which is an NSInteger
 !unknown-native-enum! SCNErrorCode bound
