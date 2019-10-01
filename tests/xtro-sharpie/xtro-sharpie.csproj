@@ -92,6 +92,7 @@
     <Compile Include="AttributeHelpers.cs" />
     <Compile Include="VersionHelpers.cs" />
     <Compile Include="ReleaseAttributeCheck.cs" />
+    <Compile Include="AppearanceCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

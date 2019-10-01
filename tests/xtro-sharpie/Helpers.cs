@@ -171,6 +171,11 @@ namespace Extrospection {
 			return self.HasAttribute ("RequiresSuperAttribute");
 		}
 
+		public static bool Appearance (this MethodDefinition self)
+		{
+			return self.HasAttribute ("AppearanceAttribute");
+		}
+
 		static bool HasAttribute (this ICustomAttributeProvider self, string attributeName)
 		{
 			if (!self.HasCustomAttributes)
