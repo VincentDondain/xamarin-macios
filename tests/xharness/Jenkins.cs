@@ -23,6 +23,7 @@ namespace xharness
 		public bool IncludeBcl;
 		public bool IncludeMac = true;
 		public bool IncludeiOS = true;
+		public bool IncludeiOS64 = true;
 		public bool IncludeiOS32 = true;
 		public bool IncludeiOSExtensions;
 		public bool ForceExtensionBuildOnly;
@@ -481,9 +482,9 @@ namespace xharness
 
 				var ps = new List<Tuple<TestProject, TestPlatform, bool>> ();
 				if (!project.SkipiOSVariation)
-					ps.Add (new Tuple<TestProject, TestPlatform, bool> (project, TestPlatform.iOS_Unified, ignored || !IncludeiOS));
+					ps.Add (new Tuple<TestProject, TestPlatform, bool> (project, TestPlatform.iOS_Unified, ignored || !IncludeiOS || !IncludeiOS64));
 				if (project.MonoNativeInfo != null)
-					ps.Add (new Tuple<TestProject, TestPlatform, bool> (project, TestPlatform.iOS_TodayExtension64, ignored || !IncludeiOS));
+					ps.Add (new Tuple<TestProject, TestPlatform, bool> (project, TestPlatform.iOS_TodayExtension64, ignored || !IncludeiOS || !IncludeiOS64));
 				if (!project.SkiptvOSVariation)
 					ps.Add (new Tuple<TestProject, TestPlatform, bool> (project.AsTvOSProject (), TestPlatform.tvOS, ignored || !IncludetvOS));
 				if (!project.SkipwatchOSVariation)
@@ -555,7 +556,7 @@ namespace xharness
 						TestName = project.Name,
 					};
 					build64.CloneTestProject (project);
-					projectTasks.Add (new RunDeviceTask (build64, Devices.Connected64BitIOS.Where (d => d.IsSupported (project))) { Ignored = !IncludeiOS });
+					projectTasks.Add (new RunDeviceTask (build64, Devices.Connected64BitIOS.Where (d => d.IsSupported (project))) { Ignored = !IncludeiOS64 || !IncludeiOS });
 
 					var build32 = new XBuildTask {
 						Jenkins = this,
@@ -565,7 +566,7 @@ namespace xharness
 						TestName = project.Name,
 					};
 					build32.CloneTestProject (project);
-					projectTasks.Add (new RunDeviceTask (build32, Devices.Connected32BitIOS.Where (d => d.IsSupported (project))) { Ignored = !IncludeiOS || !IncludeiOS32 });
+					projectTasks.Add (new RunDeviceTask (build32, Devices.Connected32BitIOS.Where (d => d.IsSupported (project))) { Ignored = !IncludeiOS32 || !IncludeiOS });
 
 					var todayProject = project.AsTodayExtensionProject ();
 					var buildToday = new XBuildTask {
@@ -653,8 +654,10 @@ namespace xharness
 			DisableKnownFailingDeviceTests ();
 
 			if (!Harness.INCLUDE_IOS) {
-				MainLog.WriteLine ("The iOS build is diabled, so any iOS tests will be disabled as well.");
+				MainLog.WriteLine ("The iOS build is disabled, so any iOS tests will be disabled as well.");
 				IncludeiOS = false;
+				IncludeiOS64 = false;
+				IncludeiOS32 = false;
 			}
 
 			if (!Harness.INCLUDE_WATCH) {
@@ -797,8 +800,9 @@ namespace xharness
 
 			// enabled by default
 			SetEnabled (labels, "ios", ref IncludeiOS);
-			SetEnabled (labels, "tvos", ref IncludetvOS);
+			SetEnabled (labels, "ios-64", ref IncludeiOS64);
 			SetEnabled (labels, "ios-32", ref IncludeiOS32);
+			SetEnabled (labels, "tvos", ref IncludetvOS);
 			SetEnabled (labels, "watchos", ref IncludewatchOS);
 			SetEnabled (labels, "mac", ref IncludeMac);
 			SetEnabled (labels, "ios-msbuild", ref IncludeiOSMSBuild);
