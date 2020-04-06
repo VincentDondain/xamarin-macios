@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PlatformName>watchOS</_PlatformName>
+    <LanguageTargets Condition="'$(MSBuildProjectExtension)' == '.csproj'">$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.CSharp.targets</LanguageTargets>
+    <LanguageTargets Condition="'$(MSBuildProjectExtension)' == '.fsproj'">$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.FSharp.targets</LanguageTargets>
+  </PropertyGroup>
+
+  <Import Project="Xamarin.Shared.Sdk.props" />
+</Project>

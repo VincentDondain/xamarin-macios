@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- This is the renamed-on-pack Xamarin.Shared.Sdk.props from the full SDK -->
+	<Import Project="Xamarin.Shared.Sdk.Default.props" />
+
+	<PropertyGroup>
+		<!-- Reset, so the full SDK install can override these in turn -->
+		<TargetFrameworkRootPath />
+		<FrameworkPathOverride />
+	</PropertyGroup>
+</Project>

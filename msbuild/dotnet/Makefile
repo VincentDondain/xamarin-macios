@@ -145,7 +145,7 @@ TEMPLATED_FILES = \
 
 all-local:: $(TARGETS) targets/Xamarin.Shared.Sdk.Versions.props
 
-pack: ref-pack sdk-pack runtime-pack
+pack: ref-pack sdk-pack lite-pack runtime-pack
 
 # just a temporary target while debugging for faster turnaround
 packsimple: prepare
@@ -188,6 +188,7 @@ ref-pack-%: nupkgs/Xamarin.%.App.Ref.nupkg;
 ref-pack: $(foreach var,$(PLATFORMS),nupkgs/Xamarin.$(var).App.Ref.nupkg)
 sdk-pack-%: nupkgs/Xamarin.%.Sdk.nupkg;
 sdk-pack: $(foreach var,$(PLATFORMS),nupkgs/Xamarin.$(var).Sdk.nupkg)
+lite-pack: $(foreach var,iOS tvOS watchOS,nupkgs/Xamarin.$(var).Sdk.Lite.nupkg)
 runtime-pack: $(foreach var,$(PLATFORMS),runtime-pack-$(var))
 
 pack-%:

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <_PlatformName>iOS</_PlatformName>
+  </PropertyGroup>
+
+  <Import Project="../xamarin.sdk.lite.csproj" />
+
+  <ItemGroup>
+    <!-- Remove default Xamarin.iOS.Sdk.props as we'll be using the Lite version -->
+    <Content Remove="$(_fullSdkPackagePath)\targets\Xamarin.iOS.Sdk.props"/>
+    <!-- The Lite SDK replaces the full Sdk.props -->
+    <Content Update="$(_fullSdkPackagePath)\targets\Xamarin.iOS.Sdk.Lite.props">
+      <PackagePath>targets\Xamarin.iOS.Sdk.props</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>
